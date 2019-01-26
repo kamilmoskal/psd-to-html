@@ -19,13 +19,15 @@ const config = {
             js: [
                 'src/js/libs/vue.js',
                 'src/js/app.js',
-            ]
+            ],
+            fonts:  './src/fonts/**.*'
         },
         dist: {
-            main: './dist',
-            css: './dist/css',
-            js: './dist/js',
-            img: './dist/img'
+            main: './docs',
+            css: './docs/css',
+            js: './docs/js',
+            img: './docs/img',
+            fonts:  './docs/fonts'
         }
     }
 };
@@ -57,6 +59,9 @@ gulp.task('static', () => {
 
     gulp.src(config.paths.src.img)
         .pipe(gulp.dest(config.paths.dist.img));
+
+    gulp.src(config.paths.src.fonts)
+        .pipe(gulp.dest(config.paths.dist.fonts));
 
     reload();
 });
