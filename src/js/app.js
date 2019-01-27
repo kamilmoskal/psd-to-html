@@ -46,3 +46,33 @@ $(window).scroll(function () {
         nav.removeClass("header-fixed");
     }
 });
+
+
+//// FILTER LIST
+const $grid = $('.container.isotope').isotope({
+  });
+ 
+$(".filter-list__item").on('click', e => {
+    if ( !$(e.target).hasClass("filter-list__number") ){
+        if ( !$(e.target).hasClass("active") ) {
+            $('.filter-list__item.active').removeClass('active');
+            $(e.target).addClass('active');
+    
+            $('.filter-list__item').children().fadeOut(500);
+            $(e.target).children(":first").fadeIn(500);
+
+            const filterValue = $(e.target).attr('data-filter');
+            $grid.isotope({ filter: filterValue });
+        } 
+    }
+});
+
+/* $('.product-item.product-item--blue').each(function(){
+    if (!$( this ).hasClass(data) ) {
+        $( this ).css({"opacity":"0", "display":"none"})
+    }
+}) */
+
+
+
+

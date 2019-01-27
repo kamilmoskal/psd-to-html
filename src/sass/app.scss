@@ -30,16 +30,13 @@ a {
     box-sizing: border-box;
     margin:0 auto;
 }
-.active{
-    color: $primary;
-}
 
 //// section-header fixed --> nav
 .header-fixed{
     position: fixed;
     width: 100%;
     top: 0;
-    z-index: 1;
+    z-index: 10;
     border-bottom: 1px solid $primary;
     padding: 10px 0 !important;
     transition: all .5s ease-out;
@@ -164,6 +161,9 @@ a {
             position: relative;
             vertical-align: middle;
             font-size:30px;
+        }
+        .active{
+            color: $primary;
         }
     }
 }
@@ -385,58 +385,136 @@ a {
     }
 }
 
-.new-section{
+.new-section {
     background-color: $bg-blue;
     padding:80px 0;
-
-    .section-title{
-        @include section-title;
-    }
 
     .container{
         display: flex;
         flex-wrap: wrap;
+        justify-content:center;
     }
-    .product-item{
-        width:100%;
-        position: relative;
-        margin: 20px 0;
-        &:hover .product-item__hover{
-            transform: scale(1);
-            opacity: 1;
-        }
-        &:hover .product-item__title{
-            background-color: $primary;
-        }
+}
 
-        @media (min-width: 768px){
-            width:47%;
-            margin: 20px 10px;
+.recommended-section {
+    background-color: $bg-white;
+    padding:80px 0;
+    
+    .container{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content:center;
+        padding:0;
+    }
+    .product-item__offer{
+        font-family: 'Roboto', sans-serif;
+        font-size:15px;
+    }
+    .product-item__new, .product-item__sell{
+        position: absolute;
+        top:10px;
+        left:10px;
+        border:1px solid $main-text;
+        color: $main-text;
+        padding:10px 20px;
+    }
+    .product-item__sell{
+        left:unset;
+        right:10px;
+    }
+    .filter-list{
+        margin:0 auto;
+        text-align: center;
+        width:100%;
+        padding: 20px 0 40px 0;
+
+        &__item{
+            position: relative;
+            font-family: 'Roboto', sans-serif;
+            font-size: 16px;
+            padding:7px 10px;
+            border:1px solid rgba($main-text, 0.5);
+            border-radius: 4px;
+            color: $main-text;
+            cursor: pointer;
+            width:170px;
+            margin:4px auto;
+            @media (min-width: 620px){
+                display: inline-block;
+                width:unset;
+                margin:4px 6px;
+            }
         }
-        @media (min-width: 1000px){   
-            width:22%;
-        }
-        &__img{
-            width:100%;
-        }
-        &__hover{
+        &__number{
             position: absolute;
-            background-color: rgba($black, 0.5);
-            border: 10px solid rgba($white, 0.55);
-            box-sizing: border-box;
-            top:0;
-            bottom:40px;
-            left:0;
-            right:0;
-            transform: scale(0);
-            opacity: 0;
-            transition: all 0.5s;
+            height: 32px;
+            width: 32px;
+            background-color: $white;
+            border:1px solid $main-text;
+            color: $primary;
+            border-radius: 50%;
+            display: inline-block;
+            font-size: 20px;
+            font-weight: 700;
+            z-index: 1;
+            line-height: 32px;
+            top:-25px;
+            right:-15px;
+            display: none;
         }
-        &__meta{
-            @include product-item__meta;
+        .active{
+            background-color: $primary;
+            border-color: $primary;
+            color: $white;
         }
+    }
+}
+
+.sale-section{
+    position: relative;
+    background-image: url('../img/sale-bg.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    width:100%;
+    height:200px;
+
+    @media (min-width: 768px){
+        height:400px;
+    }
+    .sale-wrapper{
+        position: absolute;
+        top:0;
+        left:0;
+        width:100%;
+        height:100%;
+        background-color: rgba($black, 0.5);
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .sale-item{
+        font-family: 'Roboto', sans-serif;
+        color: $white;
+        width: 90%;
+        text-align: center;
+        margin:0 auto;
+
         &__title{
-            @include product-item__title;
+            font-size:30px;
+            font-weight: 900;
+
+            @media (min-width: 768px){
+                font-size:60px;
+            }
+        }
+        &__text{
+            font-size:20px;
+            font-weight: 300;
+
+            @media (min-width: 768px){
+                font-size:38px;
+            }
         }
     }
 }

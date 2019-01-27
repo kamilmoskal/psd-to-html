@@ -5,12 +5,12 @@
 //    SECTION-TITLE
 ///////////////////////////////
 
-@mixin section-title{
+.section-title{
     font-size:26px;
     font-weight: 900;
     font-family: 'Roboto', serif;
     color: $main-text;
-    flex: 1 0 100%;
+    width:100%;
     text-align: center;
     position: relative;
     margin-bottom: 40px;
@@ -62,18 +62,56 @@
     }
 }
 
+
 ///////////////////////////////
-//    PRODUCT-ITEM_META
+//    PRODUCT-ITEM
 ///////////////////////////////
 
-@mixin product-item__meta{
-    position: absolute;
-    top:50%;
-    left:50%;
-    transform: translate(-50%,-50%);
-    width:195px;
-    text-align: center;
-    a{
+.product-item{
+    width:100%;
+    position: relative;
+    margin: 20px 0;
+    background-color: $white;
+    &:hover .product-item__hover{
+        transform: scale(1);
+        opacity: 1;
+    }
+    &:hover .product-item__title{
+        background-color: $primary;
+    }
+
+    @media (min-width: 768px){
+        width:47%;
+        margin: 20px 10px;
+    }
+    @media (min-width: 1000px){   
+        width:22%;
+    }
+    &__img{
+        width:100%;
+    }
+    &__hover{
+        position: absolute;
+        background-color: rgba($black, 0.5);
+        border: 10px solid rgba($white, 0.55);
+        box-sizing: border-box;
+        top:0;
+        bottom:40px;
+        left:0;
+        right:0;
+        transform: scale(0);
+        opacity: 0;
+        transition: all 0.5s;
+    }
+    &__meta{
+        position: absolute;
+        top:50%;
+        left:50%;
+        transform: translate(-50%,-50%);
+        width:195px;
+        text-align: center;
+    }
+    &__link{
         color: $white;
         font-size: 16px;
         display: inline-block;
@@ -86,43 +124,37 @@
             background-color: $primary;
             border: 1px solid $primary;
         }
-        i{
-            font-size: 30px;
-            vertical-align: middle;
+        &:last-child{
+            font-size: 14px;
+            text-transform: uppercase;
+            display: block;
+            background: rgba($black, 0.5);
+            border: 1px solid $white;
+            margin: 5px;
+            i{
+                font-size: 18px;
+                margin-right: 5px;
+            }
         }
     }
-    a:last-child{
-        font-size: 14px;
-        text-transform: uppercase;
-        display: block;
-        background: rgba($black, 0.5);
-        border: 1px solid $white;
-        margin: 5px;
-
-        i{
-            font-size: 18px;
-            margin-right: 5px;
-        }
+    &__icon{
+        font-size: 30px;
+        vertical-align: middle;
     }
-}
-
-///////////////////////////////
-//    PRODUCT-ITEM_TITLE
-///////////////////////////////
-
-@mixin product-item__title{
-    position: absolute;
-    bottom:0px;
-    height:40px;
-    width:100%;
-    color:$white;
-    font-size:18px;
-    font-weight: 700;
-    font-family: 'Roboto', serif;
-    background-color: $black;
-    transition: all 0.5s;
-
-    h1 {
+    &__title{
+        position: absolute;
+        bottom:0px;
+        height:40px;
+        width:100%;
+        color:$white;
+        font-size:18px;
+        font-weight: 700;
+        font-family: 'Roboto', serif;
+        background-color: $black;
+        transition: all 0.5s;
+    }
+    &__name {
+        
         font-size:18px;
         height:40px;
         width:100%;
@@ -130,7 +162,7 @@
         padding-left:15px;
         box-sizing: border-box;
     }
-    span {
+    &__price {
         background-color: rgba($white, 0.5);
         height: 40px;
         right:0;
@@ -139,5 +171,8 @@
         line-height: 40px;
         padding:0 15px;
         box-sizing: border-box;
+    }
+    &--blue{
+        background-color: $bg-blue;
     }
 }
