@@ -15,8 +15,8 @@ function changeimg(){
     });   
 }
 //setTimeout(changeimg, 3000); 
-/////////////
 
+// controls
 $('.slider__controls__left').on('click', () => {
     changeimg()
 })
@@ -49,8 +49,7 @@ $(window).scroll(function () {
 
 
 //// FILTER LIST
-const $grid = $('.container.isotope').isotope({
-  });
+const $grid = $('.container.isotope').isotope({ });
  
 $(".filter-list__item").on('click', e => {
     if ( !$(e.target).hasClass("filter-list__number") ){
@@ -66,12 +65,6 @@ $(".filter-list__item").on('click', e => {
         } 
     }
 });
-
-/* $('.product-item.product-item--blue').each(function(){
-    if (!$( this ).hasClass(data) ) {
-        $( this ).css({"opacity":"0", "display":"none"})
-    }
-}) */
 
 
 

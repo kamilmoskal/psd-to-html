@@ -60,6 +60,17 @@
         right: 0;
         }
     }
+    &--white{
+        color: $white;
+        &:before{background: $white}
+        &:after{background: $white}
+        span{
+            &:after{background: $white}
+        }
+    }
+    &--whitetitle{
+        color: $white;
+    }
 }
 
 
@@ -174,5 +185,24 @@
     }
     &--blue{
         background-color: $bg-blue;
+    }
+}
+
+
+///////////////////////////////
+//    PRIMARY BUTTON
+///////////////////////////////
+
+.btn{
+    padding: 12px 32px;
+    font-size: 16px;
+    font-weight: 300;
+    color:$white;
+    border:none;
+    border-radius: 4px;
+    background-color: $primary;
+    &:hover{
+        cursor: pointer;
+        background-color:rgba($primary, 0.8);
     }
 }
